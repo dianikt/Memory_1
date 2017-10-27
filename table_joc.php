@@ -64,37 +64,14 @@
 		  </table>		  
 		</div><br><br><br>
 		<div id="datosJug">
-			<?php echo '<form method="POST" action="table_joc.php" >';
-				echo '<label>Introduce tu nombre:</label>';
-				echo '<input type="text" name="nombre"></input><br>';
+			<?php echo '<form method="POST" action="ranking.php" >';
+				echo '<label>Nombre:</label>';
+				echo '<input  class="input" type="text" name="nombre"></input><br>';
 				echo '<label>Intentos:</label>';
-				echo '<input type="text" id="intent" name="intentos" value="0"></input><br>';
-				echo '<input type="submit" id ="envio_datos" name="datos" value="Envia"></input>';
+				echo '<input  class="input" type="text" id="intent" name="intentos" value="0"></input><br>';
+				echo '<input  type="submit" id ="envio_datos" name="datos" value="Envia"></input>';
 				echo '</form>';
 			?>	
 		</div>
 	</body>
 </html>
-<?php
-							// Abre el fichero  lectura y escritura 			
-	$nombre_archivo = "ranking.txt"; 			
-	
-	$datos=$_POST["datos"];
-
-	if ($datos == "Envia"){				
-		$nombre = $_POST["nombre"];
-		$intentos = $_POST["intentos"];									
-
-		if(file_exists($nombre_archivo)){
-			$archivo = fopen($nombre_archivo, "a");	
-			//fwrite($archivo, PHP_EOL);
-			fwrite($archivo, $nombre. PHP_EOL);					
-			fwrite($archivo, $intentos. PHP_EOL);								
-		}
-		else
-			echo "Ha habido un problema al escribir en el archivo";
-
-	}
-	fclose($archivo);					
-							 
-?>			

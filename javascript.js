@@ -66,7 +66,8 @@ function compruebaParejas(){
 }
 
 //suma y actualiza la puntuacion.
-function intentosGastados(){		
+function intentosGastados(){	
+		
         document.getElementById('puntuacion').innerHTML ="Puntuacion: "+puntuacion;
         document.getElementById('intent').value = puntuacion;
         puntuacion++;		

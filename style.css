@@ -38,12 +38,18 @@ h3:hover{
 }
 #datosJug{
 	background-color:white;
-	display:inline;
+	display:block;
 	position:absolute;
-	margin:0 0 0 -580px;
+	margin:30px 0 0 100px;
 	padding:15px;
 	border:2px solid black;
 	border-radius:25px;
+	height:140px;
+	width:160px;
+}
+.input{
+	height:15px;
+	width:130px;
 }
 #ranking{	
 	background-color:white;
@@ -93,7 +99,6 @@ h3:hover{
 #table_juego{
   margin:-155px 0 0 400px; 
   float:left;
-  background-color:black;
   border-radius:5px;  
 }
 #flip-container{
@@ -102,8 +107,8 @@ h3:hover{
   perspective: 1000px;
   padding:5px;
   position: relative;
-  margin: 1px;
-  width: 50px;
+  margin: 2px;
+  width: 90px;
 }
 .card {
   position: relative;
@@ -112,11 +117,11 @@ h3:hover{
   transition: 0.6s;
   transform-style: preserve-3d;
   transform-origin: 100% 25px;
-  margin:8px;
+   margin:8px;
 }
 .card.flip{
   transform: rotateY(180deg);
-}
+}   
 .front, .back{  
   position: absolute;
   width: 100%;
@@ -124,8 +129,9 @@ h3:hover{
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   text-align: center;
-  /*margin:0 0 0 1px;*/
+  margin:0 0 0 1px;
   border-radius:5px;  
+
 }
 .front{
   transform: rotateY(0deg);
@@ -136,9 +142,12 @@ h3:hover{
   display: flex;
   align-items: center;
   justify-content: center;
+   margin:0 0 0 1px;
 }
 .back{
-  transform: rotateY(180deg);  
+  transform: rotateY(180deg); 
+   margin:0 0 0 1px; 
+   left:80px;
 }
 
 

@@ -9,10 +9,27 @@
 	<br><br>	
 	<div id = "ranking" > 
 	<h2>Ranking de Memory</h2>
-		<?php			
-				
-					// Abre el fichero solo lectura y printa la tabla 
-			$nombre_archivo = "ranking.txt"; 
+		<?php				
+							// Abre el fichero  lectura y escritura 			
+			$nombre_archivo = "ranking.txt"; 			
+			$datos = "";
+			$datos=$_POST["datos"];
+
+			if ($datos == "Envia"){				
+				$nombre = $_POST["nombre"];
+				$intentos = $_POST["intentos"];									
+
+				if(file_exists($nombre_archivo)){
+					$archivo = fopen($nombre_archivo, "a");	
+					
+					fwrite($archivo, $nombre. PHP_EOL);					
+					fwrite($archivo, $intentos. PHP_EOL);							
+				}
+				else
+					echo "Ha habido un problema al escribir en el archivo";
+			}					
+
+			$boton = "";
 			$var=$_POST["boton"];
 
 			if ($var == "Ranking"){			   
