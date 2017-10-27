@@ -1,0 +1,48 @@
+primero boton inicio --> llama al servidor
+
+si tiene 2 cartas se ejecuta una funcion q comprueba cuantas cartas hay giradas y que cartas 
+
+js: controlar que cuando clikck  se de la vuelta y que controle que se haya dado la vuelta 
+verificar si las dos cartas son iguales  
+
+y funcion de ganar: si al verfificar ya estab dadas todas las cartas.
+
+ranking: ganara el que menos turnos haya utilizado.
+
+al ganar o perder vuelves a recargar el juego. 
+
+Armand: ver animaciones en html y css. 
+
+
+ejemplo:
+    <script type="text/javascript">
+     
+     function cambiar () {
+      document.getElementById('matrix').src = "mt07.jpg";
+     }
+     
+     function volver () {
+      document.getElementById('matrix').src = "mt05.jpg";
+     }
+     
+    </script>
+
+
+especificaciones -->servidor controla cargar el boton y traer las imagenes en php 
+boton inicio 
+se crea tablero de 6x6 imagenes del revés (random) (x2 imagenes)
+
+js ::> efecto de giro --> flips de cartas.
+
+bloquear las cartas dejarlas en el mismo estylo para que una vez esten dadas bien, 
+para q no se vuelvan a girar.
+
+
+funcion que compruebe que todas esten giradas--> para saber que ganas(puedes poner un contador que sume cada vz q dos cartas son iguales)
+
+funcion que cuente cada vez que des la vuelta a dos cartas para saber en cuantos intentos has ganado. (para la puntuacion x ejemplo)
+
+
+document.getElementById("id").setAttribute("class", "nombre");
+
+
