@@ -1,3 +1,4 @@
+<?php session_start();?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -42,8 +43,14 @@
 					$array[] = $array2;
 					$n++;
 				}
-				shuffle($array);
-				$cont = 0;						
+				
+				if(isset($_SESSION['array_guardado'])){
+					$array = $_SESSION['array_guardado'];
+				}else{
+					shuffle($array);
+					$_SESSION['array_guardado'] = $array;
+				}
+				$cont = 0;
 				for ($y = 1; $y <= $col; $y++) {			
 					echo"<tr>";					
 						for ($x = 1; $x <= $fil; $x++) {

@@ -8,64 +8,69 @@
 	<body >	
 	<br><br>	
 	<div id = "ranking" > 
-	<h2>Ranking de Memory</h2>
+	<h2>Ranking Global</h2>
 		<?php				
 							// Abre el fichero  lectura y escritura 			
 			$nombre_archivo = "ranking.txt"; 			
-			$datos = "";
-			$datos=$_POST["datos"];
+			
+			if(isset($_POST["datos"])){			
+				
+				$datos=$_POST["datos"];
 
-			if ($datos == "Envia"){				
-				$nombre = $_POST["nombre"];
-				$intentos = $_POST["intentos"];									
+				if ($datos == "Envia"){				
+					$nombre = $_POST["nombre"];
+					$intentos = $_POST["intentos"];									
 
-				if(file_exists($nombre_archivo)){
-					$archivo = fopen($nombre_archivo, "a");	
-					
-					fwrite($archivo, $nombre. PHP_EOL);					
-					fwrite($archivo, $intentos. PHP_EOL);							
+					if(file_exists($nombre_archivo)){
+						$archivo = fopen($nombre_archivo, "a");	
+						
+						fwrite($archivo, $nombre. PHP_EOL);					
+						fwrite($archivo, $intentos. PHP_EOL);							
+					}
+					else
+						echo "Ha habido un problema al escribir en el archivo";
 				}
-				else
-					echo "Ha habido un problema al escribir en el archivo";
 			}					
 
-			$boton = "";
-			$var=$_POST["boton"];
+	  		if(file_exists($nombre_archivo)){
+				$archivo = fopen($nombre_archivo, "r");
 
-			if ($var == "Ranking"){			   
-		  		if(file_exists($nombre_archivo)){
-					$archivo = fopen($nombre_archivo, "r");
+				$a = array();
+				while (!feof($archivo)) {
+				    //si extraigo una línea del archivo y no es false
+				    $nombre = fgets($archivo);
+				    $punts = fgets($archivo);
+			       //acumulo una en la variable número de líneas
+			    	$tmp = array();			    	
+			    	$tmp[]=$punts; 
+			    	$tmp[]=$nombre; 
+			    	$a[]=$tmp;
+				}	
+				sort($a);
 
-					$linea = 0;
-					$num_lineas = 0;
-					$a = array(array());
-					while (!feof($archivo)) {
-					    //si extraigo una línea del archivo y no es false
-					    if ($linea = fgets($archivo)){
-					       //acumulo una en la variable número de líneas
-					    	echo $linea;
-					        $num_lineas++;	
-					    }
+				echo "<table id='tabla_ranking'>";
+				echo "<tr >";
+				echo "<td>Posicion</td>";
+				echo "<td>Jugador</td>";
+				echo "<td>Puntuacion</td>";
+				echo "</tr>";
+				echo "<tr>";
+				
+				$num = 1;				
+				for ($i=0; $i<sizeof($a); $i++) {					
+					echo "<td>".$num."</td>";					
+					echo "<td>".$a[$i][0]."</td>";
+					echo "<td>".$a[$i][1] ."</td>";
+					echo "</tr>";
+					$num++;
+				}				
+				echo "</table>";
 
-					}
-					while (!feof($archivo)) {					   
-					    if ($linea = fgets($archivo)){					      
-					    	echo $linea;
 
-					        for ($i=0; $i<=$num_lineas; $i++){
-								for ($j=1; $j<2; $j++){							
-									$a[$i][$j]= $linea;		
-									$a[$i][$j+1]= $linea;				
-								}
-								echo "<br \>";
-							}
-					    }
-					}
-					print_r($a);					
-					
-				}else
-					echo "Ha habido un problema al abrir el archivo";
-			}
+				
+			}else
+				echo "Ha habido un problema al abrir el archivo";
+	
 			fclose($archivo);					
 							 
 		?>
