@@ -119,7 +119,7 @@ function ayudas(){
 
 	if (contadorAyudas <3 ){
 		contadorAyudas++;
-		puntuacion = puntuacion+5; // le suma 5 a la puntacion 
+		puntuacion = puntuacion+4; // le suma 5 a la puntacion 
 		document.getElementById('puntuacion').innerHTML ="Puntuacion: "+puntuacion;
 
 		var cartaName = []; //array que guarda todas las cartas con el name card.
@@ -138,7 +138,7 @@ function ayudas(){
 				if(claseCarta != null) // giramos las cartas q no tengan el atributo onclick.
 					{cartaName[i].setAttribute("class","flip-container");}
 				}
-			},1000);
+			},3000);
 	}else 
 	{
 		alert("No puedes utilizar mas ayudas.");

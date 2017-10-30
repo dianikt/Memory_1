@@ -1,3 +1,4 @@
+<?php session_start()?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -7,7 +8,7 @@
 		<link href="https://fonts.googleapis.com/css?family=Libre+Barcode+39+Extended+Text" rel="stylesheet"> 
 	</head>
 	<link rel="stylesheet" type="text/css" href="style.css"></link>	
-
+	<?php $_SESSION['nuevaPartida'] = true; ?>
 	<body>
 		<div> <h3> Memory </h3> </div>
 		<div id="iniciar">		
@@ -30,6 +31,7 @@
 		</div>		
 	</body>
 </html>
+
 
 
 

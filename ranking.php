@@ -24,50 +24,48 @@
 					if(file_exists($nombre_archivo)){
 						$archivo = fopen($nombre_archivo, "a");	
 						
-						fwrite($archivo, $nombre. PHP_EOL);					
-						fwrite($archivo, $intentos. PHP_EOL);							
+						fwrite($archivo, $nombre. PHP_EOL);		 // escribimos el nombre 			
+						fwrite($archivo, $intentos);	// y los intentos en el archivo.txt
+						fwrite($archivo, PHP_EOL);								
 					}
 					else
 						echo "Ha habido un problema al escribir en el archivo";
 				}
 			}					
-
+			// si el fichero existe recorre las lineas y los guarda un array 
 	  		if(file_exists($nombre_archivo)){
 				$archivo = fopen($nombre_archivo, "r");
 
 				$a = array();
 				while (!feof($archivo)) {
-				    //si extraigo una línea del archivo y no es false
+				  
 				    $nombre = fgets($archivo);
 				    $punts = fgets($archivo);
-			       //acumulo una en la variable número de líneas
+			      
 			    	$tmp = array();			    	
 			    	$tmp[]=$punts; 
 			    	$tmp[]=$nombre; 
 			    	$a[]=$tmp;
 				}	
-				sort($a);
-
-				echo "<table id='tabla_ranking'>";
+				sort($a);  //ordenamos por posicion de menor a mayor 
+ 
+				echo "<table id='tabla_ranking'>"; // printamos la tabla 
 				echo "<tr >";
 				echo "<td>Posicion</td>";
-				echo "<td>Jugador</td>";
 				echo "<td>Puntuacion</td>";
+				echo "<td> Jugador </td>";				
 				echo "</tr>";
 				echo "<tr>";
 				
 				$num = 1;				
-				for ($i=0; $i<sizeof($a); $i++) {					
+				for ($i=1; $i<sizeof($a); $i++) {					
 					echo "<td>".$num."</td>";					
 					echo "<td>".$a[$i][0]."</td>";
 					echo "<td>".$a[$i][1] ."</td>";
 					echo "</tr>";
 					$num++;
 				}				
-				echo "</table>";
-
-
-				
+				echo "</table>";				
 			}else
 				echo "Ha habido un problema al abrir el archivo";
 	

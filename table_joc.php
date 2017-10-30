@@ -1,4 +1,4 @@
-<?php session_start();?>
+<?php session_start()?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -43,14 +43,15 @@
 					$array[] = $array2;
 					$n++;
 				}
-				
-				if(isset($_SESSION['array_guardado'])){
-					$array = $_SESSION['array_guardado'];
+
+				if(isset($_SESSION['arrayGuardado'])){
+					$array = $_SESSION['arrayGuardado'];					
 				}else{
 					shuffle($array);
-					$_SESSION['array_guardado'] = $array;
+					$_SESSION['arrayGuardado'] = $array;					
 				}
-				$cont = 0;
+				
+				$cont = 0;						
 				for ($y = 1; $y <= $col; $y++) {			
 					echo"<tr>";					
 						for ($x = 1; $x <= $fil; $x++) {
@@ -64,7 +65,6 @@
 							echo "</td>\n";
 	   						$cont++;
 	   					} 
-
 	   				echo "</tr>";					
 				 }
 				 ?>								
@@ -75,7 +75,7 @@
 				echo '<label>Nombre:</label>';
 				echo '<input  class="input" type="text" name="nombre"></input><br>';
 				echo '<label>Intentos:</label>';
-				echo '<input  class="input" type="text" id="intent" name="intentos" value="0"></input><br>';
+				echo '<input  class="input" type="text" id="intent" name="intentos" value="0" readonly="readonly"></input><br>';
 				echo '<input  type="submit" id ="envio_datos" name="datos" value="Envia"></input>';
 				echo '</form>';
 			?>	

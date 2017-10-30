@@ -7,6 +7,7 @@ h3{
   text-align: center;
   color :black;
   margin-top:55px;
+  font-weight: 200;
   font-family: 'Libre Barcode 39 Extended Text', cursive;
 }
 h3:hover{
@@ -53,13 +54,14 @@ h3:hover{
 }
 #ranking{	
 	background-color:white;
-	display:inline;
-	position:absolute;
-	margin:0 0 0 0;
+	display:block;
+	width: 22%;
+	margin: 0 auto;
 	padding:15px;
 	border:2px solid black;
 	border-radius:25px;	
 }
+
 #tabla_ranking.tr{
 	background-color:black;
 }
@@ -67,7 +69,8 @@ h3:hover{
 	border:2px solid black;
 	border-radius:5px;	
 	text-align:center;
-	font-size: 18px;	
+	font-size: 18px;
+
 }
 #ranking_boton{
 	height:40px;
