@@ -13,7 +13,7 @@
 		<div id = 'variables'>	<br>		
 			Tiempo: <span id="minutos">0</span>:<span id="segundos">0</span>			
 			<div id ='puntuacion'> Puntuacion: </div>	
-			<?php echo "<button id ='ayuda' onclick ='ayudas()' value='Ayuda'>Ayuda</button>" ?>
+			<?php echo "<button id ='ayuda' onclick ='ayudas()' value='Ayuda'>Ayuda</button>" ?>	
 		</div>
 		<div id="table_juego">
 		  <table id="tabla">
@@ -79,6 +79,6 @@
 				echo '<input  type="submit" id ="envio_datos" name="datos" value="Envia"></input>';
 				echo '</form>';
 			?>	
-		</div>
+		</div>		
 	</body>
 </html>

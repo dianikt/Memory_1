@@ -1,4 +1,6 @@
-<?php session_start()?>
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -28,7 +30,11 @@
 				</form>					
 				</div>
 			</div>
-		</div>		
+		</div>	
+		<button type='submit' value='reset'>reset
+		<?php
+			unset($_SESSION["newsession"]); 
+		?></button>	
 	</body>
 </html>
 

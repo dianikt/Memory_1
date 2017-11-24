@@ -16,15 +16,16 @@
 			if(isset($_POST["datos"])){			
 				
 				$datos=$_POST["datos"];
+				
 
 				if ($datos == "Envia"){				
-					$nombre = $_POST["nombre"];
+					$nombreNuevo = $_POST["nombre"];
 					$intentos = $_POST["intentos"];									
 
 					if(file_exists($nombre_archivo)){
 						$archivo = fopen($nombre_archivo, "a");	
 						
-						fwrite($archivo, $nombre. PHP_EOL);		 // escribimos el nombre 			
+						fwrite($archivo, $nombreNuevo. PHP_EOL);// escribimos el nombre 			
 						fwrite($archivo, $intentos);	// y los intentos en el archivo.txt
 						fwrite($archivo, PHP_EOL);								
 					}
@@ -37,6 +38,7 @@
 				$archivo = fopen($nombre_archivo, "r");
 
 				$a = array();
+				
 				while (!feof($archivo)) {
 				  
 				    $nombre = fgets($archivo);
@@ -44,11 +46,12 @@
 			      
 			    	$tmp = array();			    	
 			    	$tmp[]=$punts; 
-			    	$tmp[]=$nombre; 
-			    	$a[]=$tmp;
-				}	
+			    	$tmp[]=$nombre;
+			    	$a[]=$tmp; 			    	
+				}						  
+
 				sort($a);  //ordenamos por posicion de menor a mayor 
- 
+				 
 				echo "<table id='tabla_ranking'>"; // printamos la tabla 
 				echo "<tr >";
 				echo "<td>Posicion</td>";
@@ -65,7 +68,7 @@
 					echo "</tr>";
 					$num++;
 				}				
-				echo "</table>";				
+				echo "</table>";						
 			}else
 				echo "Ha habido un problema al abrir el archivo";
 	
